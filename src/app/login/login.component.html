@@ -1,0 +1,37 @@
+<form>
+  <div class="form-group">
+    <input
+      #emailControl="ngModel"
+      hinvEmailvalidator
+      hinvHover
+      hinvHover="blue"
+      class="form-control"
+      type="email"
+      name="name"
+      [(ngModel)]="email"
+      placeholder="email"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="emailControl.dirty && emailControl.errors?.['invalidEmail']"
+    >
+      Invalid email, please type a validad email to login.
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      hinvHover
+      hinvHover="steelblue"
+      class="form-control"
+      type="password"
+      name="name"
+      [(ngModel)]="password"
+      placeholder="password"
+    />
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit" (click)="login()">
+      Login
+    </button>
+  </div>
+</form>
