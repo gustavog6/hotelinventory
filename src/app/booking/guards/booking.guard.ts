@@ -10,16 +10,23 @@ export const bookingGuard: CanDeactivateFn<BookingComponent> = (
   nextState
 ) => {
   // if (component.bookingForm.pristine) {
-  //   return true
+  //   return true;
   // } else {
-  //   @inject(MatSnackBar).open('hola');
+  //   inject(MatSnackBar).open('You have unsaved changes', 'DISCARD');
+  //   return false;
+  // }
+
+  // if (component.bookingForm.pristine) {
+  //   return component.bookingForm.pristine;
+  // } else {
+  //   confirm('You have unsaved changes.');
   //   return false;
   // }
 
   if (component.bookingForm.pristine) {
     return component.bookingForm.pristine;
   } else {
-    confirm('You have unsaved changes.');
+    inject(MatSnackBar).open('You have unsaved changes', 'DISCARD');
     return false;
   }
 
